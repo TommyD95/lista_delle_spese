@@ -1,12 +1,40 @@
- {
-            "lista":[
-                {
-                    "id":1,
-                    "nome":"schedina",
-                    "categoria":"svago",
-                    "importo":100
-        
-                }
-            ]
-        }
-    
+{
+  "lista": [
+    {
+      "id": 1,
+      "nome": "droga",
+      "categoria": "cibo",
+      "importo": 1
+    },
+    {
+      "nome": "droga",
+      "categoria": "casa",
+      "importo": 2500,
+      "id": 2
+    },
+    {
+      "nome": "droga",
+      "categoria": "casa",
+      "importo": 2500,
+      "id": 3
+    },
+    {
+      "nome": "droga",
+      "categoria": "casa",
+      "importo": 2500,
+      "id": 4
+    },
+    {
+      "nome": "droga",
+      "categoria": "casa",
+      "importo": 2500,
+      "id": 5
+    },
+    {
+      "nome": "droga",
+      "categoria": "casa",
+      "importo": 2500,
+      "id": 6
+    }
+  ]
+}
