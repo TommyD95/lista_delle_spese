@@ -1,40 +1,27 @@
-import { useCallback, useEffect,  } from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import './App.css';
+import { useCallback, useEffect } from "react";
+import { Container, Row, Col, Nav, Navbar } from "react-bootstrap";
+import "./App.css";
 import FormComponent from "./FormComponent";
 import Lista from "./Lista";
 
 function Applicativo() {
-
-
-  
-
- 
-
   return (
     <div className="App">
-      <header className="App-header text">
-        <Container>
-          <Row style={{
-            position: "sticky"}}>
-            <Col>
-              <FormComponent />
-            </Col>
-          </Row>
+      <Container>
+        <Row>
+          <Col style={{marginRight:'70px'}}>
+          <FormComponent />
+          </Col>
 
-          <hr style={{  color: "white",backgroundColor:"white", border:"solid", height:5,width:"100%"}} />
+          <Col>
+          <h2 style={{
+          color: 'white'}}>la tua lista</h2>
+          <Lista />
 
-          <Row>
-            <Col>
-            <Lista />
+          </Col>
+          </Row> 
+      </Container>
 
-            </Col>
-          </Row>
-        </Container>
-        
-
-        
-      </header>
     </div>
   );
 }

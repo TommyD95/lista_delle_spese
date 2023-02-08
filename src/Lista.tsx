@@ -26,11 +26,16 @@ function Lista() {
         
         {data?.map((data: ISpesa) => (
           
-          <Card key={data?.id} style={{ width: '18rem',backgroundColor: "#282c34" }}>
+          <Card className='' key={data?.id} style={{  color: "white",
+          width:"100%",
+            backgroundColor: "#282c34",
+            border: 'solid  white',
+            marginTop:'25px'
+          }}>
             
             <Card.Body>
               
-              <Card.Title>attivita n°{data.id}</Card.Title>
+              <Card.Title>spesa n°{data.id}</Card.Title>
               
               <Card.Text className="text">
               
@@ -41,14 +46,13 @@ function Lista() {
                 categoria: {data.categoria}
               </Card.Text>
               
-              <Button variant="primary" onClick={() => eliminaAttivita(data)}>elimina</Button>
-              
-              <Button variant="primary" onClick={() => modificaAttivita({
+             <Button variant="primary" onClick={()=>eliminaAttivita(data)}>elimina</Button>
+              {/* <Button variant="primary" onClick={() => modificaAttivita({
                     id: data.id,
                     nome: "preservativi",
                     categoria: Categoria.Svago,
                     importo: 5,
-              })}>modifica</Button>
+              })}>modifica</Button> */}
               
             </Card.Body>
           </Card>
@@ -58,7 +62,7 @@ function Lista() {
 
     
   }
-  return <>{content}</>;
+  return <>{(data && data.length==0) ? <h3 style={{color:'whitesmoke'}}>nessun elemento</h3> : content}</>;
 }
 
 export default Lista;
