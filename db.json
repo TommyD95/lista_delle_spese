@@ -1,40 +1,34 @@
 {
   "lista": [
     {
-      "id": 1,
-      "nome": "droga",
-      "categoria": "cibo",
-      "importo": 1
+      "nome": "palla",
+      "categoria": "svago",
+      "importo": 5,
+      "id": 1
     },
     {
-      "nome": "droga",
-      "categoria": "casa",
-      "importo": 2500,
+      "nome": "palla",
+      "categoria": "svago",
+      "importo": 5,
       "id": 2
     },
     {
-      "nome": "droga",
-      "categoria": "casa",
-      "importo": 2500,
+      "nome": "palla",
+      "categoria": "svago",
+      "importo": 5,
       "id": 3
     },
     {
-      "nome": "droga",
+      "nome": "",
       "categoria": "casa",
-      "importo": 2500,
+      "importo": 50.96,
       "id": 4
     },
     {
-      "nome": "droga",
+      "nome": "",
       "categoria": "casa",
-      "importo": 2500,
+      "importo": 0,
       "id": 5
-    },
-    {
-      "nome": "droga",
-      "categoria": "casa",
-      "importo": 2500,
-      "id": 6
     }
   ]
 }

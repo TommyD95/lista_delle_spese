@@ -20,4 +20,4 @@ export type AppThunk<ReturnType = void> = ThunkAction<
     unknown,
     Action<string>
     >;
-export {useFetchListaQuery,useAddAttivitaMutation} from "../Hooks/chiamateAPI"
+export {useFetchListaQuery,useAddAttivitaMutation,useEliminaAttivitaMutation,useModificaAttivitaMutation} from "../Hooks/chiamateAPI"
