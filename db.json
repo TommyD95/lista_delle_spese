@@ -1,33 +1,33 @@
 {
   "lista": [
     {
-      "nome": "vvv",
-      "categoria": "cibo",
-      "importo": 666,
+      "nome": "",
+      "categoria": "casa",
+      "importo": 0,
       "id": 6
     },
     {
-      "nome": "carne",
-      "categoria": "cibo",
-      "importo": 5,
+      "nome": "",
+      "categoria": "casa",
+      "importo": 0,
       "id": 7
     },
     {
-      "nome": "wvwevwevewv",
-      "categoria": "svago",
-      "importo": 98149814,
+      "nome": "",
+      "categoria": "casa",
+      "importo": 0,
       "id": 8
     },
     {
-      "nome": "carne",
-      "categoria": "cibo",
-      "importo": 5,
+      "nome": "",
+      "categoria": "casa",
+      "importo": 0,
       "id": 9
     },
     {
-      "nome": "carne",
-      "categoria": "cibo",
-      "importo": 5,
+      "nome": "",
+      "categoria": "casa",
+      "importo": 0,
       "id": 10
     },
     {

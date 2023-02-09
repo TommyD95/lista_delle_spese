@@ -8,10 +8,11 @@ import { useModificaAttivitaMutation } from "../Store/store";
 
 type IProps = {
   data: ISpesa,
-  setShowFormModifica:React.Dispatch<React.SetStateAction<IFormVisibility>>
+  setShowFormModifica: React.Dispatch<React.SetStateAction<IFormVisibility>>,
+  showFormModifica:IFormVisibility
 };
 
-function FormModifica({ data,setShowFormModifica }: IProps) {
+function FormModifica({ data,setShowFormModifica,showFormModifica }: IProps) {
 
   const [nome, setNome] = useState<string>("");
   const [importo, setImporto] = useState<number>(0);
@@ -32,7 +33,7 @@ function FormModifica({ data,setShowFormModifica }: IProps) {
     };
 
     modificaAttivita(simulaAttivita);
-    setShowFormModifica({})
+    setShowFormModifica({...showFormModifica,[data.id!]:false})
   };
 
   return (

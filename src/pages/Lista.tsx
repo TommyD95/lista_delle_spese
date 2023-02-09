@@ -76,7 +76,7 @@ function Lista() {
               >
                 modifica
               </Button>
-              {showFormModifica[data.id!] && <FormModifica data={data} setShowFormModifica={ setShowFormModifica} />}
+              {showFormModifica[data.id!] && <FormModifica data={data} showFormModifica={showFormModifica} setShowFormModifica={ setShowFormModifica} />}
             </Card.Body>
           </Card>
         ))}
