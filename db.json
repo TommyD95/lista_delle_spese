@@ -1,3 +1,10 @@
 {
-  "lista": []
+  "lista": [
+    {
+      "nome": "",
+      "categoria": "casa",
+      "importo": 0,
+      "id": 1
+    }
+  ]
 }

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Form, Button, Container, Col, Row } from "react-bootstrap";
-import { useAddAttivitaMutation } from "./Hooks/chiamateAPI";
-import { Categoria, ISpesa } from "./Model/spesaModel";
+import { useAddAttivitaMutation } from "../Hooks/chiamateAPI";
+import { Categoria, ISpesa } from "../Model/spesaModel";
 
 function FormComponent() {
   const [addAttivita, addResult] = useAddAttivitaMutation();

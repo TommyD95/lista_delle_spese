@@ -1,7 +1,7 @@
 import { useCallback, useEffect } from "react";
 import { Container, Row, Col, Nav, Navbar } from "react-bootstrap";
-import "./App.css";
-import FormComponent from "./FormComponent";
+import "../App.css";
+import FormComponent from "../components/FormComponent";
 import Lista from "./Lista";
 
 function Applicativo() {

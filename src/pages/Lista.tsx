@@ -3,11 +3,11 @@ import {
   useFetchListaQuery,
   useEliminaAttivitaMutation,
   useModificaAttivitaMutation,
-} from "./Hooks/chiamateAPI";
-import { Categoria, ISpesa } from "./Model/spesaModel";
-import "./App.css";
+} from "../Hooks/chiamateAPI";
+import { Categoria, ISpesa } from "../Model/spesaModel";
+import "../App.css";
 import { useState } from "react";
-import FormModifica from "./FormModifica";
+import FormModifica from "../components/FormModifica";
 
 function Lista() {
   const { data, error, isLoading } = useFetchListaQuery();
@@ -93,7 +93,7 @@ function Lista() {
         content
       )}
 
-      <Modal show={showModal} backdrop="static" keyboard={false}>
+      <Modal show={showModal} backdrop="static" keyboard={true}>
         <Modal.Header closeButton>
           <Modal.Title>spesa eliminata</Modal.Title>
         </Modal.Header>

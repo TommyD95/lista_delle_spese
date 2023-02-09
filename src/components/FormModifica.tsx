@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
-import { Categoria, ISpesa } from "./Model/spesaModel";
-import { useModificaAttivitaMutation } from "./Store/store";
+import { Categoria, ISpesa } from "../Model/spesaModel";
+import { useModificaAttivitaMutation } from "../Store/store";
 
 type IProps = {
     data: ISpesa,
