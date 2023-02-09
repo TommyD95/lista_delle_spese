@@ -1,148 +1,190 @@
 {
   "lista": [
     {
-      "nome": "",
-      "categoria": "casa",
-      "importo": 0,
-      "id": 1
-    },
-    {
-      "nome": "",
-      "categoria": "casa",
-      "importo": 0,
-      "id": 2
-    },
-    {
-      "nome": "",
-      "categoria": "casa",
-      "importo": 0,
-      "id": 3
-    },
-    {
-      "nome": "",
-      "categoria": "casa",
-      "importo": 0,
-      "id": 4
-    },
-    {
-      "nome": "",
-      "categoria": "casa",
-      "importo": 0,
-      "id": 5
-    },
-    {
-      "nome": "",
-      "categoria": "casa",
-      "importo": 0,
+      "nome": "vvv",
+      "categoria": "cibo",
+      "importo": 666,
       "id": 6
     },
     {
-      "nome": "",
-      "categoria": "casa",
-      "importo": 0,
+      "nome": "carne",
+      "categoria": "cibo",
+      "importo": 5,
       "id": 7
     },
     {
-      "nome": "",
-      "categoria": "casa",
-      "importo": 0,
+      "nome": "wvwevwevewv",
+      "categoria": "svago",
+      "importo": 98149814,
       "id": 8
     },
     {
-      "nome": "",
-      "categoria": "casa",
-      "importo": 0,
+      "nome": "carne",
+      "categoria": "cibo",
+      "importo": 5,
       "id": 9
     },
     {
-      "nome": "",
-      "categoria": "casa",
-      "importo": 0,
+      "nome": "carne",
+      "categoria": "cibo",
+      "importo": 5,
       "id": 10
     },
     {
-      "nome": "",
-      "categoria": "casa",
-      "importo": 0,
+      "nome": "carne",
+      "categoria": "cibo",
+      "importo": 5,
       "id": 11
     },
     {
-      "nome": "",
-      "categoria": "casa",
-      "importo": 0,
+      "nome": "carne",
+      "categoria": "cibo",
+      "importo": 5,
       "id": 12
     },
     {
-      "nome": "",
-      "categoria": "casa",
-      "importo": 0,
+      "nome": "carne",
+      "categoria": "cibo",
+      "importo": 5,
       "id": 13
     },
     {
-      "nome": "",
-      "categoria": "casa",
-      "importo": 0,
+      "nome": "carne",
+      "categoria": "cibo",
+      "importo": 5,
       "id": 14
     },
     {
-      "nome": "",
-      "categoria": "casa",
-      "importo": 0,
+      "nome": "carne",
+      "categoria": "cibo",
+      "importo": 5,
       "id": 15
     },
     {
-      "nome": "",
-      "categoria": "casa",
-      "importo": 0,
+      "nome": "carne",
+      "categoria": "cibo",
+      "importo": 5,
       "id": 16
     },
     {
-      "nome": "",
-      "categoria": "casa",
-      "importo": 0,
+      "nome": "carne",
+      "categoria": "cibo",
+      "importo": 5,
       "id": 17
     },
     {
-      "nome": "",
-      "categoria": "casa",
-      "importo": 0,
+      "nome": "carne",
+      "categoria": "cibo",
+      "importo": 5,
       "id": 18
     },
     {
-      "nome": "",
-      "categoria": "casa",
-      "importo": 0,
+      "nome": "carne",
+      "categoria": "cibo",
+      "importo": 5,
       "id": 19
     },
     {
-      "nome": "",
-      "categoria": "casa",
-      "importo": 0,
+      "nome": "carne",
+      "categoria": "cibo",
+      "importo": 5,
       "id": 20
     },
     {
-      "nome": "",
-      "categoria": "casa",
-      "importo": 0,
+      "nome": "carne",
+      "categoria": "cibo",
+      "importo": 5,
       "id": 21
     },
     {
-      "nome": "",
-      "categoria": "casa",
-      "importo": 0,
+      "nome": "carne",
+      "categoria": "cibo",
+      "importo": 5,
       "id": 22
     },
     {
-      "nome": "",
-      "categoria": "casa",
-      "importo": 0,
+      "nome": "carne",
+      "categoria": "cibo",
+      "importo": 5,
       "id": 23
+    },
+    {
+      "nome": "carne",
+      "categoria": "cibo",
+      "importo": 5,
+      "id": 24
+    },
+    {
+      "nome": "carne",
+      "categoria": "cibo",
+      "importo": 5,
+      "id": 25
+    },
+    {
+      "nome": "carne",
+      "categoria": "cibo",
+      "importo": 5,
+      "id": 26
+    },
+    {
+      "nome": "carne",
+      "categoria": "cibo",
+      "importo": 5,
+      "id": 27
+    },
+    {
+      "nome": "carne",
+      "categoria": "cibo",
+      "importo": 5,
+      "id": 28
+    },
+    {
+      "nome": "carne",
+      "categoria": "cibo",
+      "importo": 5,
+      "id": 29
+    },
+    {
+      "nome": "carne",
+      "categoria": "cibo",
+      "importo": 5,
+      "id": 30
+    },
+    {
+      "nome": "carne",
+      "categoria": "cibo",
+      "importo": 5,
+      "id": 31
     },
     {
       "nome": "",
       "categoria": "casa",
       "importo": 0,
-      "id": 24
+      "id": 32
+    },
+    {
+      "nome": "",
+      "categoria": "casa",
+      "importo": 0,
+      "id": 33
+    },
+    {
+      "nome": "",
+      "categoria": "casa",
+      "importo": 0,
+      "id": 34
+    },
+    {
+      "nome": "",
+      "categoria": "casa",
+      "importo": 0,
+      "id": 35
+    },
+    {
+      "nome": "",
+      "categoria": "casa",
+      "importo": 0,
+      "id": 36
     }
   ]
 }

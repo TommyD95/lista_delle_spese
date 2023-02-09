@@ -10,13 +10,16 @@ import { useState } from "react";
 import FormModifica from "../components/FormModifica";
 import BaseModal from "../components/BaseModal";
 
+export interface IFormVisibility {
+  [key: number]: boolean;
+}
+
 function Lista() {
   const { data, error, isLoading } = useFetchListaQuery();
   const [eliminaAttivita, eliminaResult] = useEliminaAttivitaMutation();
   const [modificaAttivita, modificaResult] = useModificaAttivitaMutation();
 
-  const [showFormMOdifica, setShowFormModifica] = useState<boolean>(false);
-
+  const [showFormModifica, setShowFormModifica] = useState<IFormVisibility>({});
   const [showModal, setShowModal] = useState<boolean>(false);
 
   const onClickElimina = (data: ISpesa) => {
@@ -25,6 +28,10 @@ function Lista() {
   };
 
   let content;
+
+  const onClickModifica = (index: number) => {
+    setShowFormModifica({ ...showFormModifica, [index]: true });
+  };
 
   if (isLoading) {
     content = <Spinner animation="grow" variant="light" />;
@@ -43,7 +50,6 @@ function Lista() {
               backgroundColor: "#282c34",
               border: "solid  white",
               marginTop: "25px",
-  
             }}
           >
             <Card.Body>
@@ -66,17 +72,11 @@ function Lista() {
               </Button>
               <Button
                 variant="primary"
-                onClick={() => setShowFormModifica(!showFormMOdifica)}
+                onClick={() => onClickModifica(data.id!)}
               >
                 modifica
               </Button>
-              {showFormMOdifica && (
-                <FormModifica
-                  data={data}
-                  showFormMOdifica={showFormMOdifica}
-                  setShowFormModifica={setShowFormModifica}
-                />
-              )}
+              {showFormModifica[data.id!] && <FormModifica data={data} setShowFormModifica={ setShowFormModifica} />}
             </Card.Body>
           </Card>
         ))}

@@ -26,7 +26,8 @@ function Applicativo() {
               }}
             >
               La tua lista
-            </h2></Row>
+        </h2>
+        </Row>
         <Row style={{}}>
        
           <Col>
