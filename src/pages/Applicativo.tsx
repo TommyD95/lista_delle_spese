@@ -14,7 +14,7 @@ function Applicativo() {
 </div> */
 <div style={{ textAlign: 'center', height: '100vh', overflow: 'auto' }}>
       <Container >
-        <Row style={{ position: "sticky", top: 0,backgroundColor:'#282c34', zIndex:100 , border:'solid white 2px'}}>
+        <Row style={{ position: "sticky", top: 0,backgroundColor:'#282c34', zIndex:100 , border:'solid #3B71CA 2px'}}>
           <Col >
             <FormComponent />
           </Col>

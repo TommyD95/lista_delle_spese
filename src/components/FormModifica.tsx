@@ -86,7 +86,7 @@ function FormModifica({ data,setShowFormModifica,showFormModifica }: IProps) {
 
         <Button
           style={{ marginTop: "10px", marginBottom: "10px" }}
-          variant="primary"
+          variant="success"
           type="submit"
         >
           modifica spesa

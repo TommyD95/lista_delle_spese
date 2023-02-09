@@ -48,7 +48,7 @@ function Lista() {
               color: "white",
               width: "100%",
               backgroundColor: "#282c34",
-              border: "solid  white",
+              border: "solid  #3B71CA",
               marginTop: "25px",
             }}
           >
@@ -65,13 +65,13 @@ function Lista() {
 
               <Button
                 style={{ marginRight: "10px" }}
-                variant="primary"
+                variant="danger"
                 onClick={() => onClickElimina(data)}
               >
                 elimina
               </Button>
               <Button
-                variant="primary"
+                variant="warning"
                 onClick={() => onClickModifica(data.id!)}
               >
                 modifica
