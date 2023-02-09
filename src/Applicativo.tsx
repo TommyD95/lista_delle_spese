@@ -9,19 +9,22 @@ function Applicativo() {
     <div className="App">
       <Container>
         <Row>
-          <Col style={{marginRight:'70px'}}>
-          <FormComponent />
+          <Col style={{ marginRight: "70px" }}>
+            <FormComponent />
           </Col>
 
           <Col>
-          <h2 style={{
-          color: 'white'}}>la tua lista</h2>
-          <Lista />
-
+            <h2
+              style={{
+                color: "white",
+              }}
+            >
+              la tua lista
+            </h2>
+            <Lista />
           </Col>
-          </Row> 
+        </Row>
       </Container>
-
     </div>
   );
 }
