@@ -76,21 +76,7 @@ export const { useFetchListaQuery,
 
 
 export  {listaApi};
-/*     const [data, setData] = useState<ISpesa[]>([])
-    
-    const getLista = async () => {
-        axios.get(API)
-            .then(response => 
-                setData(response.data)
-            ).catch(err=>console.log(err))
-    }
 
-     
-    
-    return {
-        getLista: useCallback(() => { getLista() }, [data]),
-        data
-    }*/
 
 
 

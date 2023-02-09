@@ -8,6 +8,7 @@ import { Categoria, ISpesa } from "../Model/spesaModel";
 import "../App.css";
 import { useState } from "react";
 import FormModifica from "../components/FormModifica";
+import BaseModal from "../components/BaseModal";
 
 function Lista() {
   const { data, error, isLoading } = useFetchListaQuery();
@@ -18,10 +19,9 @@ function Lista() {
 
   const [showModal, setShowModal] = useState<boolean>(false);
 
-  const onClickElimina = async (data: ISpesa) => {
-    setShowModal(!showModal);
-
+  const onClickElimina = (data: ISpesa) => {
     eliminaAttivita(data);
+    setShowModal(!showModal);
   };
 
   let content;
@@ -31,7 +31,6 @@ function Lista() {
   } else if (error) {
     content = <div>error..</div>;
   } else {
-    console.log(data);
     content = (
       <div>
         {data?.map((data: ISpesa) => (
@@ -44,6 +43,7 @@ function Lista() {
               backgroundColor: "#282c34",
               border: "solid  white",
               marginTop: "25px",
+  
             }}
           >
             <Card.Body>
@@ -93,17 +93,12 @@ function Lista() {
         content
       )}
 
-      <Modal show={showModal} backdrop="static" keyboard={true}>
-        <Modal.Header closeButton>
-          <Modal.Title>spesa eliminata</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>la tua spesa è stata eliminata con successo!</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowModal(!showModal)}>
-            ok!
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      <BaseModal
+        title={"spesa eliminata"}
+        body={"spesa eliminata con successo!"}
+        showModal={showModal}
+        setShowModal={setShowModal}
+      />
     </>
   );
 }

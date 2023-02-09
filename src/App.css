@@ -8,13 +8,19 @@
 }
 
 
-
-
-
-
 .App {
   text-align: center;
+  height:100vh;
+  overflow: auto;
 }
+
+
+
+
+
+
+
+
 
 .App-logo {
   height: 40vmin;
@@ -43,10 +49,7 @@
 }
 
 
-.sticky-nav {
-  position: sticky;
-  top: 0;
-}
+
 
 @keyframes App-logo-spin {
   from {
