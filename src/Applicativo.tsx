@@ -19,7 +19,7 @@ function Applicativo() {
                 color: "white",
               }}
             >
-              la tua lista
+              La tua lista
             </h2>
             <Lista />
           </Col>

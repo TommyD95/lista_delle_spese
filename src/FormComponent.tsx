@@ -25,6 +25,8 @@ function FormComponent() {
   };
 
   return (
+    <>
+      <h2 style={{color:'white'}}>Aggiungi le tue spese</h2>
     <Form
       onSubmit={submit}
       style={{
@@ -38,6 +40,7 @@ function FormComponent() {
         marginTop: "60px",
       }}
     >
+      
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>NOME</Form.Label>
         <Form.Control
@@ -79,7 +82,8 @@ function FormComponent() {
       >
         aggiungi spesa
       </Button>
-    </Form>
+      </Form>
+      </>
   );
 }
 

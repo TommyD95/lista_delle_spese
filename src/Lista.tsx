@@ -1,4 +1,4 @@
-import { Spinner, Button, Card } from "react-bootstrap";
+import { Spinner, Button, Card, Alert, Modal } from "react-bootstrap";
 import {
   useFetchListaQuery,
   useEliminaAttivitaMutation,
@@ -15,6 +15,14 @@ function Lista() {
   const [modificaAttivita, modificaResult] = useModificaAttivitaMutation();
 
   const [showFormMOdifica, setShowFormModifica] = useState<boolean>(false);
+
+  const [showModal, setShowModal] = useState<boolean>(false);
+
+  const onClickElimina = async (data: ISpesa) => {
+    setShowModal(!showModal);
+
+    eliminaAttivita(data);
+  };
 
   let content;
 
@@ -52,7 +60,7 @@ function Lista() {
               <Button
                 style={{ marginRight: "10px" }}
                 variant="primary"
-                onClick={() => eliminaAttivita(data)}
+                onClick={() => onClickElimina(data)}
               >
                 elimina
               </Button>
@@ -78,10 +86,24 @@ function Lista() {
   return (
     <>
       {data && data.length == 0 ? (
-        <h3 style={{ color: "whitesmoke",marginTop:'50px' }}>nessun elemento</h3>
+        <h3 style={{ color: "whitesmoke", marginTop: "50px" }}>
+          nessun elemento
+        </h3>
       ) : (
         content
       )}
+
+      <Modal show={showModal} backdrop="static" keyboard={false}>
+        <Modal.Header closeButton>
+          <Modal.Title>spesa eliminata</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>la tua spesa è stata eliminata con successo!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowModal(!showModal)}>
+            ok!
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </>
   );
 }
