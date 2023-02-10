@@ -9,6 +9,7 @@ import "../App.css";
 import { useState } from "react";
 import FormModifica from "../components/FormModifica";
 import BaseModal from "../components/BaseModal";
+import BaseCard from "../components/BaseCard";
 
 export interface IFormVisibility {
   [key: number]: boolean;
@@ -16,22 +17,15 @@ export interface IFormVisibility {
 
 function Lista() {
   const { data, error, isLoading } = useFetchListaQuery();
-  const [eliminaAttivita, eliminaResult] = useEliminaAttivitaMutation();
-  const [modificaAttivita, modificaResult] = useModificaAttivitaMutation();
 
   const [showFormModifica, setShowFormModifica] = useState<IFormVisibility>({});
   const [showModal, setShowModal] = useState<boolean>(false);
 
-  const onClickElimina = (data: ISpesa) => {
-    eliminaAttivita(data);
-    setShowModal(!showModal);
-  };
+  
 
   let content;
 
-  const onClickModifica = (index: number) => {
-    setShowFormModifica({ ...showFormModifica, [index]: true });
-  };
+ 
 
   if (isLoading) {
     content = <Spinner animation="grow" variant="light" />;
@@ -41,44 +35,7 @@ function Lista() {
     content = (
       <div>
         {data?.map((data: ISpesa) => (
-          <Card
-            className=""
-            key={data?.id}
-            style={{
-              color: "white",
-              width: "100%",
-              backgroundColor: "#282c34",
-              border: "solid  #3B71CA",
-              marginTop: "25px",
-            }}
-          >
-            <Card.Body>
-              <Card.Title>spesa n°{data.id}</Card.Title>
-
-              <Card.Text className="text">
-                nome: {data.nome}
-                <br />
-                importo: {data.importo}
-                <br />
-                categoria: {data.categoria}
-              </Card.Text>
-
-              <Button
-                style={{ marginRight: "10px" }}
-                variant="danger"
-                onClick={() => onClickElimina(data)}
-              >
-                elimina
-              </Button>
-              <Button
-                variant="warning"
-                onClick={() => onClickModifica(data.id!)}
-              >
-                modifica
-              </Button>
-              {showFormModifica[data.id!] && <FormModifica data={data} showFormModifica={showFormModifica} setShowFormModifica={ setShowFormModifica} />}
-            </Card.Body>
-          </Card>
+         <BaseCard key={data.id} data={data} setShowModal={setShowModal}  />
         ))}
       </div>
     );
