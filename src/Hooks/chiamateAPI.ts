@@ -4,6 +4,11 @@ import { ISpesa } from "../Model/spesaModel";
 import {createApi, fetchBaseQuery, FetchBaseQueryError, FetchBaseQueryMeta} from "@reduxjs/toolkit/query/react"
 import { ResultDescription } from "@reduxjs/toolkit/dist/query/endpointDefinitions";
 
+
+
+
+
+
 const listaApi = createApi({
     reducerPath: 'lista',
     baseQuery: fetchBaseQuery({
