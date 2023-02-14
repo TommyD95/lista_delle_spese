@@ -1,53 +1,162 @@
-import { useEffect, useState } from "react";
+import { ucs2 } from "punycode";
+import { useEffect, useState, useCallback, FocusEventHandler, FocusEvent } from "react";
 import { Form, Button } from "react-bootstrap";
+import { ValidationError } from "yup";
 import { IComune } from "../Model/comuneModel";
 import { IUser } from "../Model/userModel";
+import { validationSchema } from "../SchemaYup";
 
-
-
-
+interface IErrors {
+  message: string;
+  valid: boolean;
+  path: string;
+}
+export interface ITouched {
+  [key: string]: boolean;
+}
 
 function GeneralForm() {
-  const [nome, setNome] = useState<string>("");
-  const [cognome, setCognome] = useState<string>("");
-  const [indirizzo, setIndirizzo] = useState<string>("");
-  const [comune, setComune] = useState<string>("");
-    const [email, setEmail] = useState<string>("");
-    const [regione, setRegione] = useState<string>("");
-
   const [comuni, setComuni] = useState<IComune[]>([]);
+  const [errors, setErrors] = useState<IErrors[]>([]);
+  const [isTouched, setIsTouched] = useState<ITouched>({});
+  const [user, setUser] = useState<IUser>({
+    nome: "",
+    cognome: "",
+    comune: "",
+    email: "",
+    indirizzo: "",
+    regione: "",
+    provincia: "",
+  });
 
-  useEffect(() => {
+  const fetcha = useCallback(() => {
     fetch("http://localhost:3001/comuni")
       .then((response) => response.json())
       .then((response) => setComuni(response))
       .catch((err) => console.error(err));
   }, []);
 
+  useEffect(() => {
+    fetcha();
+  }, [fetcha]);
+
+  /*  useEffect(() => {
+    validationSchema
+      .validate(user, { abortEarly: false })
+      .then(() => setErrors([]))
+      .catch((err: ValidationError) => {
+        let array: IErrors[] = [];
+        err.inner.forEach((e) => {
+          array.push({ message: e.message, valid: false, path: e.path! });
+        });
+        setErrors(array);
+      });
+  }, [user]);
+ */
   const reset = () => {
-    setNome("");
-    setCognome("");
-    setIndirizzo("");
-    setEmail("");
-    setCognome("");
-    setComune("");
+    setUser({
+      nome: "",
+      cognome: "",
+      comune: "",
+      email: "",
+      indirizzo: "",
+      regione: "",
+      provincia: "",
+    });
   };
 
-  const submit = (e: React.FormEvent<HTMLFormElement>) => {
+  
+  const onBlur = (event: FocusEvent<HTMLInputElement> ) => {
+    validationSchema
+      .validate(user, { abortEarly: false })
+      .then(() => setErrors([]))
+      .catch((err: ValidationError) => {
+        let array: IErrors[] = [];
+       
+        const eventPath = event.target.name;
+
+        setIsTouched({...isTouched, [eventPath]:true})
+        
+        err.inner.forEach((e) => {
+          array.push({ message: e.message, valid: false, path: e.path!});
+          
+        });
+        setErrors(array);
+      });
+  };
+  const onBlurSelect = (event: FocusEvent<HTMLSelectElement> ) => {
+    validationSchema
+      .validate(user, { abortEarly: false })
+      .then(() => setErrors([]))
+      .catch((err: ValidationError) => {
+        let array: IErrors[] = [];
+
+        console.log(event.target.name);
+        
+       
+        if (event.target.name === "comune") {
+          const eventPath = event.target.name
+          setIsTouched({ ...isTouched, [eventPath]: true });
+         
+        } else {
+          alert('errore')
+        }
+
+        
+        
+        err.inner.forEach((e) => {
+          array.push({ message: e.message, valid: false, path: e.path!});
+          
+        });
+        setErrors(array);
+      });
+  };
+  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setUser((prev) => ({ ...prev, [name]: value }));
+  }, []);
+
+  const handleSelectChange = useCallback(
+    (e: React.ChangeEvent<HTMLSelectElement>) => {
+      const { name, value } = e.currentTarget;
+      setUser((prev) => ({
+        ...prev,
+        [name]: value,
+        provincia: comuni.find((com: IComune) => com.comune == value)?.den_prov ?? "",
+        regione: comuni.find((com: IComune) => com.comune == value)?.den_reg ?? "",
+      }));
+    },
+    [comuni]
+  );
+
+  /* const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+
+    setUser((prev) => ({ ...prev, [name]: value }));
+  };
+  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const { name, value } = e.currentTarget;
+    setUser((prev) => ({
+      ...prev,
+      [name]: value,
+      provincia: comuni.find((com: IComune) => com.comune == value)!.den_prov,
+      regione: comuni.find((com: IComune) => com.comune == value)!.den_reg,
+    }));
+  }; */
+
+  const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    const user: IUser = {
-      nome,
-      cognome,
-      email,
-      indirizzo,
-      comune,
-        provincia: comuni.find((com: IComune) => com.comune == comune)!.den_prov,
-      regione: comuni.find((com: IComune) => com.comune == comune)!.den_reg
-    };
-
-    console.log(user);
     reset();
+  };
+
+  const renderError = (path: string) => {
+    const erroreTrovato = errors.find((err) => err.path == path);
+    
+    return (
+      erroreTrovato && isTouched[path] && (
+        <div style={{ color: "red" }}>{erroreTrovato.message}</div>
+      )
+    );
   };
 
   return (
@@ -56,6 +165,7 @@ function GeneralForm() {
         Inserisci i tuoi dati
       </h2>
       <Form
+        noValidate
         onSubmit={submit}
         style={{
           fontSize: "10pt",
@@ -77,68 +187,80 @@ function GeneralForm() {
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>nome</Form.Label>
           <Form.Control
+            onBlur={onBlur}
             required
-            value={nome}
+            name="nome"
+            value={user.nome}
             type="text"
             placeholder="name"
-            onChange={(e) => setNome(e.target.value)}
+            onChange={handleChange}
           />
         </Form.Group>
+        {renderError("nome")}
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>cognome</Form.Label>
           <Form.Control
             required
-            value={cognome}
+            onBlur={onBlur}
+            name="cognome"
+            value={user.cognome}
             type="text"
             placeholder="cognome"
-            onChange={(e) => setCognome(e.target.value)}
+            onChange={handleChange}
           />
         </Form.Group>
+        {renderError("cognome")}
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>e-mail</Form.Label>
           <Form.Control
             required
-            value={email}
+            onBlur={onBlur}
+            name="email"
+            value={user.email}
             type="email"
             placeholder="email"
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={handleChange}
           />
         </Form.Group>
+        {renderError("email")}
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>indirizzo</Form.Label>
           <Form.Control
-            value={indirizzo}
+            
+            onBlur={onBlur}
+            name="indirizzo"
+            value={user.indirizzo}
             required
             type="text"
             placeholder="indirizzo"
-            onChange={(e) => setIndirizzo(e.target.value)}
+            onChange={handleChange}
           />
         </Form.Group>
+        {renderError("indirizzo")}
 
         <Form.Label>comune</Form.Label>
         <Form.Select
+          onBlur={onBlurSelect}
           required
-          value={comune}
+          name="comune"
+          value={user.comune}
           placeholder="comune"
           as="select"
-          onChange={(e) => setComune(e.currentTarget.value)}
+          onChange={handleSelectChange}
         >
-          <option>comune...</option>
+          <option value="">comune...</option>
           {comuni.map((cat: IComune) => (
             <option key={cat.pro_com_t} value={cat.comune}>
               {cat.comune}
             </option>
           ))}
         </Form.Select>
+        {renderError("comune")}
 
-        <Button
-          style={{ marginTop: "50px" }}
-          variant="primary"
-          type="submit"
-        >
+        <Button style={{ marginTop: "50px" }} variant="primary" type="submit">
           GeneralForm submit
         </Button>
       </Form>

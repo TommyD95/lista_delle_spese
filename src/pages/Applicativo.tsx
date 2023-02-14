@@ -9,7 +9,7 @@ function Applicativo() {
   return (
 
 <div style={{ textAlign: 'center', height: '100vh', overflow: 'auto' }}>
-     {/*  <Container >
+      <Container >
         <Row style={{ position: "sticky", top: 0,backgroundColor:'#282c34', zIndex:100 , border:'solid #3B71CA 2px'}}>
           <Col >
             <FormComponent />
@@ -31,7 +31,7 @@ function Applicativo() {
             <Lista />
           </Col>
         </Row>
-      </Container>  */}
+      </Container>  
 
       <GeneralForm />
       </div>
